@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/y-takey/ink-flower/issues"
   },
-  "homepage": "https://github.com/y-takey/ink-flower#readme"
+  "homepage": "https://github.com/y-takey/ink-flower#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "ink": "^0.3.0"
+  }
 }
