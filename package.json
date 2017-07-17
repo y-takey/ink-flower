@@ -1,0 +1,19 @@
+{
+  "name": "ink-flower",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y-takey/ink-flower.git"
+  },
+  "author": "y-takey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/y-takey/ink-flower/issues"
+  },
+  "homepage": "https://github.com/y-takey/ink-flower#readme"
+}
