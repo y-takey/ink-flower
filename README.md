@@ -51,6 +51,7 @@ result:
 ## Caveat
 
 * Currently supported characters are uppercase alphabet only. ( A - Z )
+* Display characters break if character length over window(terminal) size.
 
 LICENSE
 ---
