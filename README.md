@@ -30,6 +30,13 @@ text | string | "" | required
 color | string | "green" | "red", "green", "blue"... e.t.c. -> see also [chalk](https://github.com/chalk/chalk)
 mark | string | "#" | character of dot
 
+### Supported characters
+
+* uppercase alphabets: `A` - `Z`
+* numbers: `0` - `9`
+* others: `!`,  `?`, `#`, `$`,  `%`, `&`, `"`, `'`, `+`, `-`, `*`, `/`, `(`, `)`, `[`, `]`, `=`, `<`, `>`, `^`, `|`, `;`, `:`, `_`,  `@`, `.`, `,`
+
+
 ## Example
 
 code:
@@ -50,7 +57,6 @@ result:
 
 ## Caveat
 
-* Currently supported characters are uppercase alphabet only. ( A - Z )
 * Display characters break if character length over window(terminal) size.
 
 LICENSE
