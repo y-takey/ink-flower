@@ -29,7 +29,8 @@ name | type | default | desc
 text | string | "" | required
 color | string | "green" | "red", "green", "blue"... e.t.c. -> see also [chalk](https://github.com/chalk/chalk)
 mark | string | "#" | character of dot
-inverse: boolean | false | 
+spacer | number | 2 | margin around each characters
+inverse | boolean | false |
 
 ### Supported characters
 

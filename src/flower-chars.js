@@ -1,13 +1,18 @@
 const { h, Text, Component } = require("ink");
 const CharMap = require("./char-map");
 
-const emptyLines = ["", "", "", "", "", ""];
+const CHAR_WIDTH = 5;
+const CHAR_HEIGHT = 6;
+
+const blank = (size, element) => {
+  return Array.from({ length: size }, () => element);
+};
 
 class Flower extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { lines: emptyLines };
+    this.state = { lines: [] };
     this.builtChars = {};
   }
 
@@ -22,9 +27,17 @@ class Flower extends Component {
   }
 
   buildLines() {
-    return this.props.text.split("").reduce((ret, char) => {
-      return this.character(char).map((val, i) => ret[i] + val);
-    }, emptyLines);
+    const { space, padding } = this.marks();
+    const bl = blank(this.props.spacer, space).join("");
+    const lines = this.props.text
+      .split("")
+      .reduce((ret, char) => {
+        return this.character(char).map((val, i) => ret[i] + val);
+      }, blank(this.props.spacer + CHAR_HEIGHT, ""))
+      .map(line => line + bl);
+    lines.push(...blank(this.props.spacer, blank(lines[0].length, space)));
+
+    return lines;
   }
 
   character(char) {
@@ -36,15 +49,21 @@ class Flower extends Component {
   }
 
   buildChar(char) {
+    const { spacer } = this.props;
+    const { space, padding } = this.marks();
+
+    return [...blank(spacer, []), ...CharMap[char]].map(lines => {
+      let cells = space.repeat(CHAR_WIDTH + spacer).split("");
+      lines.forEach(i => (cells[i + spacer] = padding));
+      return cells.join("");
+    });
+  }
+
+  marks() {
     const { mark, inverse } = this.props;
     const space = inverse ? mark : " ";
     const padding = inverse ? " " : mark;
-
-    return CharMap[char].map(lines => {
-      let cells = space.repeat(6).split("");
-      lines.forEach(i => (cells[i + 1] = padding));
-      return cells.join("");
-    });
+    return { space, padding };
   }
 }
 
@@ -52,6 +71,7 @@ Flower.defaultProps = {
   text: "",
   color: "green",
   mark: "#",
+  spacer: 2,
   inverse: false
 };
 
