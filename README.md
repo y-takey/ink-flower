@@ -57,10 +57,6 @@ result:
 *   * ****   ***
 ```
 
-## Caveat
-
-* Display characters break if character length over window(terminal) size.
-
 LICENSE
 ---
 
