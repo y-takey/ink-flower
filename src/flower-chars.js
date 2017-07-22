@@ -36,11 +36,13 @@ class Flower extends Component {
   }
 
   buildChar(char) {
-    const { mark } = this.props;
+    const { mark, inverse } = this.props;
+    const space = inverse ? mark : " ";
+    const padding = inverse ? " " : mark;
 
     return CharMap[char].map(lines => {
-      let cells = " ".repeat(6).split("");
-      lines.forEach(i => (cells[i + 1] = mark));
+      let cells = space.repeat(6).split("");
+      lines.forEach(i => (cells[i + 1] = padding));
       return cells.join("");
     });
   }
@@ -49,7 +51,8 @@ class Flower extends Component {
 Flower.defaultProps = {
   text: "",
   color: "green",
-  mark: "#"
+  mark: "#",
+  inverse: false
 };
 
 module.exports = Flower;
