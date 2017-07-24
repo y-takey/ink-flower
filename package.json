@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"no text\"",
     "build": "babel src --out-dir lib",
+    "prepare": "npm run build",
     "release": "npm run build && npm publish",
     "ex": "./node_modules/.bin/babel-node example/basic.js"
   },
